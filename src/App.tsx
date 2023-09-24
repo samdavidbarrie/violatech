@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'semantic-ui-css/semantic.min.css'
+import Gallery from "./Gallery";
+import { Tab } from 'semantic-ui-react'
+import Jokes from "./Jokes";
+
+const panes = [
+  { menuItem: 'Gallery', render: () => <Tab.Pane><Gallery/></Tab.Pane> },
+  { menuItem: 'Jokes', render: () => <Tab.Pane><Jokes/></Tab.Pane> },
+  { menuItem: 'Riddles', render: () => <Tab.Pane>Riddles</Tab.Pane> },
+]
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Tab panes={panes} />
   );
 }
 
